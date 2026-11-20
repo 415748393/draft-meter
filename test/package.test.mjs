@@ -92,6 +92,19 @@ if (!fs.existsSync(clientFile)) {
   const forbidden = requires.filter((name) => name.startsWith('@deepseek-ai/'));
   suite.check(forbidden.length === 0, 'requires only baseline modules', forbidden.join(', '));
   suite.check(requires.includes('react'), 'requires react');
+
+  // The bundle claims to be offline and storage-free. These are the API names
+  // that would break that claim, so they are asserted rather than assumed.
+  const network = /\b(fetch|XMLHttpRequest|WebSocket|EventSource|sendBeacon|navigator\.connection)\b/.exec(src);
+  suite.check(network === null, 'opens no network connection', network?.[0]);
+  const storage = /\b(localStorage|sessionStorage|indexedDB|document\.cookie)\b/.exec(src);
+  suite.check(storage === null, 'stores nothing', storage?.[0]);
+  // Draft text is user content: it must never reach the DOM as markup.
+  const markup = /\b(innerHTML|outerHTML|insertAdjacentHTML|document\.write)\b/.exec(src);
+  suite.check(markup === null, 'never inserts draft text as markup', markup?.[0]);
+  // The plugin observes the draft. Mutating it would be the user's decision.
+  const mutation = /\b(setDraft|persistDraft|submit)\s*\(/.exec(src);
+  suite.check(mutation === null, 'never mutates the draft', mutation?.[0]);
 }
 
 // ---- host half ------------------------------------------------------------

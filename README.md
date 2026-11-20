@@ -82,7 +82,7 @@ nothing needs to be listed under `dsh.client.external`.
 npm test        # or: node test/run.mjs
 ```
 
-The suite is dependency-free and needs a bare `node` (18+). It runs 124 checks
+The suite is dependency-free and needs a bare `node` (18+). It runs 129 checks
 in two groups:
 
 - **`test/package.test.mjs`** — the package shape DSH actually reads: manifest
