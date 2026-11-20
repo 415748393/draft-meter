@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "草稿统计",
+    "description": "在输入框下方实时显示正在撰写的消息的字数与估算 token 数，点击可查看行数、单词与 CJK 字符数。",
+    "detail": "docs/DETAIL.zh.md"
+  }
+}

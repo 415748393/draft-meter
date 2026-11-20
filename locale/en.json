@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Draft meter",
+    "description": "Shows character and estimated token counts for the message you are writing, right below the composer; click the reading for line, word and CJK counts.",
+    "detail": "docs/DETAIL.md"
+  }
+}
