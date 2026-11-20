@@ -1,5 +1,8 @@
 # Draft meter
 
+[![test](https://github.com/415748393/draft-meter/actions/workflows/test.yml/badge.svg)](https://github.com/415748393/draft-meter/actions/workflows/test.yml)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 A DSH plugin that puts one always-visible reading of your message draft under
 the composer — characters and an estimated token count — and expands into a
 short measurement panel when you click it.
